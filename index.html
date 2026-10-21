@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feira de Ciências: Do que são feitas as estrelas?</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%); }
+    .glass-card { background: rgba(15, 23, 42, .85); border: 1px solid rgba(255,255,255,.15); }
+    .glow-effect { box-shadow: 0 0 25px rgba(129,140,248,.25); }
+    .tv-glow { box-shadow: 0 0 50px rgba(99,102,241,.4); }
+    button:focus-visible { outline: 3px solid #a5b4fc; outline-offset: 3px; }
+    .quiz-option:disabled { cursor: default; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body class="gradient-bg text-slate-100 min-h-screen pb-16">
+<header class="border-b border-slate-800 bg-slate-900/95 sticky top-0 z-50 shadow-lg">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center gap-4">
+    <div class="flex items-center space-x-3">
+      <div class="p-2 bg-indigo-600 rounded-lg shadow-lg"><i class="fa-solid fa-star text-amber-300 text-xl"></i></div>
+      <div>
+        <h1 class="text-lg font-bold text-white leading-tight">Feira de Ciências • 7º Ano</h1>
+        <p class="text-xs text-indigo-300">A descoberta estelar de Cecilia Payne</p>
+      </div>
+    </div>
+    <nav class="flex flex-wrap items-center gap-2 text-sm font-medium" aria-label="Navegação principal">
+      <button onclick="switchTab('video')" id="btn-video" class="px-4 py-2 rounded-lg bg-indigo-600 text-white transition flex items-center space-x-2"><i class="fa-solid fa-play text-red-400"></i><span>Vídeos Educativos</span></button>
+      <button onclick="switchTab('quiz')" id="btn-quiz" class="px-4 py-2 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition flex items-center space-x-2"><i class="fa-solid fa-graduation-cap text-emerald-400"></i><span>Quiz Interativo</span></button>
+      <button onclick="openTvMode()" class="px-4 py-2 rounded-lg bg-gradient-to-r from-red-600 to-amber-600 text-white font-bold hover:brightness-110 transition flex items-center space-x-2 shadow-lg"><i class="fa-solid fa-tv"></i><span>Modo Apresentação (TV)</span></button>
+    </nav>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 mt-8">
+  <section id="sec-video" class="space-y-8">
+    <div class="text-center max-w-2xl mx-auto mb-6">
+      <span class="px-3 py-1 bg-red-500/20 text-red-300 rounded-full text-xs font-semibold uppercase tracking-wider">Galeria de Vídeos</span>
+      <h2 class="text-3xl font-extrabold text-white mt-3">A História e Ciência de Cecilia Payne</h2>
+      <p class="text-slate-400 mt-2">Assista aos vídeos explicativos e entenda como Cecilia Payne descobriu do que são feitas as estrelas!</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      <article class="glass-card rounded-3xl p-5 border border-red-500/30 shadow-2xl space-y-3">
+        <div class="flex items-center space-x-2 text-red-400 font-bold text-sm"><i class="fa-solid fa-film"></i><span>Vídeo 1: Quem foi Cecilia Payne?</span></div>
+        <div class="aspect-video w-full rounded-2xl overflow-hidden border border-slate-700 bg-black"><iframe class="w-full h-full" src="https://www.youtube.com/embed/WilvSazX3GM?rel=0" title="Cecilia Payne" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-xs text-slate-300"><p class="font-semibold text-white mb-1">A composição das estrelas</p>Conheça a cientista e sua contribuição para a astronomia.</div>
+      </article>
+      <article class="glass-card rounded-3xl p-5 border border-indigo-500/30 shadow-2xl space-y-3">
+        <div class="flex items-center space-x-2 text-indigo-400 font-bold text-sm"><i class="fa-solid fa-atom"></i><span>Vídeo 2: Como funciona a espectroscopia?</span></div>
+        <div class="aspect-video w-full rounded-2xl overflow-hidden border border-slate-700 bg-black"><iframe class="w-full h-full" src="https://www.youtube.com/embed/DYPkrvPPjMM?rel=0" title="Introdução à espectroscopia" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-xs text-slate-300"><p class="font-semibold text-white mb-1">Entendendo a luz das estrelas</p>Veja como a luz ajuda a identificar os elementos presentes nas estrelas.</div>
+      </article>
+      <article class="glass-card rounded-3xl p-5 border border-amber-500/30 shadow-2xl space-y-3">
+        <div class="flex items-center space-x-2 text-amber-400 font-bold text-sm"><i class="fa-solid fa-star"></i><span>Vídeo 3: Cecilia Payne e a astrofísica</span></div>
+        <div class="aspect-video w-full rounded-2xl overflow-hidden border border-slate-700 bg-black"><iframe class="w-full h-full" src="https://www.youtube.com/embed/hg458UkEpnI?rel=0" title="Cecilia Payne e o cosmos" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-xs text-slate-300"><p class="font-semibold text-white mb-1">História da ciência</p>Conheça o impacto do trabalho científico de Payne.</div>
+      </article>
+      <article class="glass-card rounded-3xl p-5 border border-emerald-500/30 shadow-2xl space-y-3">
+        <div class="flex items-center space-x-2 text-emerald-400 font-bold text-sm"><i class="fa-solid fa-lightbulb"></i><span>Vídeo 4: Química estelar na prática</span></div>
+        <div class="aspect-video w-full rounded-2xl overflow-hidden border border-slate-700 bg-black"><iframe class="w-full h-full" src="https://www.youtube.com/embed/ExV2Elj1m6I?rel=0" title="Como descobrir a composição de uma estrela" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-xs text-slate-300"><p class="font-semibold text-white mb-1">Identificando elementos no céu</p>A espectroscopia funciona como uma espécie de “código de barras” da luz.</div>
+      </article>
+    </div>
+    <p class="text-center text-xs text-slate-400">Os vídeos são carregados do YouTube; é necessária conexão com a internet.</p>
+  </section>
+
+  <section id="sec-quiz" class="hidden space-y-8">
+    <div class="text-center max-w-2xl mx-auto mb-6">
+      <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs font-semibold uppercase tracking-wider">Desafio completo</span>
+      <h2 class="text-3xl font-extrabold text-white mt-3">Quiz: Do que são feitas as estrelas?</h2>
+      <p class="text-slate-400 mt-2">Responda às questões e teste seus conhecimentos sobre astronomia!</p>
+    </div>
+    <div class="max-w-3xl mx-auto glass-card rounded-3xl p-6 sm:p-8 border border-emerald-500/30 shadow-2xl">
+      <div id="quiz-container">
+        <div class="flex justify-between items-center border-b border-slate-800 pb-4 mb-6"><span id="quiz-progress" class="text-xs font-bold text-emerald-400 uppercase">Questão 1 de 8</span><span id="quiz-score" class="text-xs font-semibold bg-slate-800 px-3 py-1 rounded-full text-slate-300">Pontuação: 0</span></div>
+        <h3 id="quiz-question" class="text-xl font-bold text-white mb-6"></h3>
+        <div id="quiz-options" class="space-y-3"></div>
+        <div id="quiz-feedback" class="mt-6 p-4 rounded-xl hidden text-sm font-medium leading-relaxed" aria-live="polite"></div>
+        <div class="mt-6 flex justify-between items-center border-t border-slate-800 pt-4">
+          <button id="quiz-hint-btn" onclick="showQuizHint()" class="text-xs text-indigo-400 hover:text-indigo-300"><i class="fa-solid fa-lightbulb mr-1.5 text-amber-400"></i>Ver dica</button>
+          <button id="quiz-next-btn" onclick="nextQuestion()" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm rounded-xl transition hidden">Próxima pergunta <i class="fa-solid fa-arrow-right ml-1"></i></button>
+        </div>
+        <p id="quiz-hint-text" class="text-xs text-amber-300 italic mt-3 hidden bg-amber-950/40 p-3 rounded-lg border border-amber-800/50"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="tv-modal" class="fixed inset-0 bg-slate-950 z-[100] hidden flex-col justify-between overflow-hidden" role="dialog" aria-modal="true" aria-label="Modo apresentação">
+  <div class="bg-slate-900 border-b border-indigo-500/40 p-4 flex justify-between items-center gap-3">
+    <div class="flex items-center gap-3"><span class="inline-flex rounded-full h-3 w-3 bg-red-500"></span><span class="bg-red-600/20 text-red-400 border border-red-500/40 text-xs px-2.5 py-1 rounded font-bold uppercase">Modo TV • Feira de Ciências</span><h2 class="text-sm md:text-lg font-bold text-white hidden sm:block">A descoberta de Cecilia Payne</h2></div>
+    <button onclick="closeTvMode()" class="px-3 py-2 bg-slate-800 hover:bg-red-900/60 text-slate-300 rounded-lg border border-slate-700 text-xs font-bold"><i class="fa-solid fa-xmark mr-1"></i>Sair da TV</button>
+  </div>
+  <div class="flex-1 p-4 md:p-8 flex flex-col justify-center items-center max-w-5xl mx-auto w-full text-center overflow-y-auto">
+    <section id="tv-slide-0" class="tv-slide space-y-6">
+      <span class="px-4 py-1.5 bg-indigo-500/20 text-indigo-300 border border-indigo-400/30 rounded-full text-xs font-bold uppercase">Apresentação interativa</span>
+      <h1 class="text-3xl md:text-5xl font-black text-white leading-tight">DO QUE SÃO FEITAS AS ESTRELAS?</h1>
+      <p class="text-lg md:text-xl text-indigo-200 max-w-2xl mx-auto">A descoberta de Cecilia Payne e a composição química das estrelas.</p>
+      <button onclick="nextTvSlide()" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold">Iniciar exposição <i class="fa-solid fa-play ml-2"></i></button>
+    </section>
+    <section id="tv-slide-1" class="tv-slide space-y-4 hidden w-full">
+      <span class="text-red-300 text-xs font-bold uppercase">Vídeo de apresentação</span><h2 class="text-2xl md:text-3xl font-extrabold">1. Quem foi Cecilia Payne?</h2>
+      <div class="max-w-3xl mx-auto aspect-video w-full rounded-2xl overflow-hidden border border-slate-700 bg-black"><iframe class="w-full h-full" src="https://www.youtube.com/embed/WilvSazX3GM?rel=0" title="Cecilia Payne" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    </section>
+    <section id="tv-slide-2" class="tv-slide space-y-4 hidden w-full">
+      <span class="text-indigo-300 text-xs font-bold uppercase">Entendendo a ciência</span><h2 class="text-2xl md:text-3xl font-extrabold">2. Como lemos a luz das estrelas?</h2>
+      <div class="max-w-3xl mx-auto aspect-video w-full rounded-2xl overflow-hidden border border-slate-700 bg-black"><iframe class="w-full h-full" src="https://www.youtube.com/embed/DYPkrvPPjMM?rel=0" title="Introdução à espectroscopia" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    </section>
+    <section id="tv-slide-3" class="tv-slide space-y-4 hidden w-full">
+      <span class="text-emerald-300 text-xs font-bold uppercase">Quiz interativo</span><h2 class="text-2xl font-bold">Teste seus conhecimentos</h2>
+      <div class="max-w-2xl mx-auto bg-slate-900 border border-slate-800 p-5 md:p-6 rounded-2xl text-left space-y-4">
+        <div class="flex justify-between text-xs font-bold text-emerald-400"><span id="tv-quiz-progress">Questão 1 de 8</span><span id="tv-quiz-score">Pontos: 0</span></div>
+        <h3 id="tv-quiz-question" class="text-lg font-bold text-white"></h3><div id="tv-quiz-options" class="space-y-2"></div>
+        <div id="tv-quiz-feedback" class="p-3 rounded-lg hidden text-sm font-semibold" aria-live="polite"></div>
+        <div class="flex justify-end"><button id="tv-quiz-next-btn" onclick="nextTvQuizQuestion()" class="px-4 py-2 bg-emerald-600 text-white font-bold text-xs rounded-lg hidden">Próxima questão <i class="fa-solid fa-arrow-right ml-1"></i></button></div>
+      </div>
+    </section>
+    <section id="tv-slide-4" class="tv-slide space-y-6 hidden w-full">
+      <span class="text-purple-300 text-xs font-bold uppercase">Conclusão</span><h2 class="text-3xl md:text-4xl font-extrabold">O que aprendemos?</h2>
+      <div class="bg-slate-900 border border-slate-800 p-6 rounded-3xl max-w-2xl mx-auto text-left space-y-3">
+        <div class="flex items-center gap-3 text-blue-300 font-bold"><i class="fa-solid fa-atom text-xl"></i><span>A composição das estrelas</span></div>
+        <p class="text-slate-300 text-sm">O Sol e muitas outras estrelas são compostos principalmente de hidrogênio e hélio. A proporção exata varia conforme a forma de medir a composição — por massa ou por número de átomos.</p>
+        <p class="text-slate-300 text-sm">Cecilia Payne mostrou que as linhas do espectro estelar podiam ser explicadas pelas condições físicas das estrelas e pela grande abundância de hidrogênio.</p>
+      </div>
+    </section>
+  </div>
+  <div class="bg-slate-900/90 border-t border-slate-800 p-4 flex justify-between items-center gap-3">
+    <button onclick="prevTvSlide()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-semibold"><i class="fa-solid fa-chevron-left mr-1"></i>Anterior</button>
+    <div class="flex gap-2" id="tv-indicators" aria-label="Progresso dos slides"></div>
+    <button onclick="nextTvSlide()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-semibold">Próximo <i class="fa-solid fa-chevron-right ml-1"></i></button>
+  </div>
+</div>
+
+<script>
+const quizData = [
+  { question: "Qual é o elemento químico mais abundante no Sol e na maioria das estrelas?", options: ["Ferro", "Cálcio", "Hidrogênio", "Oxigênio"], correct: 2, rationale: "O hidrogênio é o elemento mais abundante nas estrelas. O trabalho de Cecilia Payne ajudou a estabelecer essa conclusão.", hint: "É o elemento mais leve da tabela periódica." },
+  { question: "O que muitos cientistas acreditavam sobre a composição do Sol antes do trabalho de Payne?", options: ["Que sua composição era semelhante à da Terra, com mais elementos pesados", "Que era feito de gelo", "Que era uma estrela sem gases", "Que era composto apenas de oxigênio"], correct: 0, rationale: "Na época, a abundância enorme de hidrogênio ainda não era aceita por muitos pesquisadores.", hint: "A ideia antiga aproximava a composição solar da composição dos materiais conhecidos na Terra." },
+  { question: "Qual era a principal ferramenta usada para estudar a composição das estrelas?", options: ["Microscópio", "Espectroscopia", "Termômetro doméstico", "Bússola"], correct: 1, rationale: "A espectroscopia analisa a luz e suas linhas espectrais para identificar elementos químicos.", hint: "É uma técnica que estuda a luz separada em diferentes comprimentos de onda." },
+  { question: "O que são as linhas escuras no espectro de uma estrela?", options: ["Buracos no espaço", "Sinais de que a estrela apagou", "Comprimentos de onda absorvidos por átomos", "Som emitido pela estrela"], correct: 2, rationale: "Átomos absorvem luz em comprimentos de onda específicos, formando linhas no espectro.", hint: "Pense na luz que falta em determinadas partes do espectro." },
+  { question: "Em que ano Cecilia Payne apresentou sua importante tese sobre atmosferas estelares?", options: ["1825", "1925", "1975", "2005"], correct: 1, rationale: "Sua tese de doutorado foi concluída em 1925 e se tornou um marco da astrofísica.", hint: "Foi na década de 1920." },
+  { question: "Além do hidrogênio, qual elemento é muito abundante nas estrelas?", options: ["Hélio", "Prata", "Chumbo", "Cloro"], correct: 0, rationale: "O hélio é geralmente o segundo elemento mais abundante nas estrelas.", hint: "Seu nome começa com a letra H e tem quatro letras." },
+  { question: "Por que a descoberta de Payne foi importante?", options: ["Provou que todas as estrelas têm a mesma temperatura", "Mostrou que as estrelas são compostas principalmente de hidrogênio e hélio", "Descobriu um novo planeta", "Provou que o Sol é sólido"], correct: 1, rationale: "Seu trabalho mudou a compreensão da composição química das estrelas.", hint: "A descoberta tratava dos elementos presentes nas estrelas." },
+  { question: "O que a cor e o espectro da luz de uma estrela podem ajudar os cientistas a investigar?", options: ["Sua composição e propriedades físicas", "O nome dado por seus planetas", "A quantidade de árvores na Terra", "A idade exata de cada pessoa"], correct: 0, rationale: "A luz estelar traz informações sobre composição química, temperatura e movimento.", hint: "A luz funciona como uma pista sobre as características da estrela." }
+];
+
+let quizIndex = 0, quizScore = 0, quizAnswered = false;
+let tvQuizIndex = 0, tvQuizScore = 0, tvQuizAnswered = false;
+let currentTvSlide = 0;
+const totalTvSlides = 5;
+
+function switchTab(tab) {
+  const video = document.getElementById('sec-video'), quiz = document.getElementById('sec-quiz');
+  const videoBtn = document.getElementById('btn-video'), quizBtn = document.getElementById('btn-quiz');
+  const isVideo = tab === 'video';
+  video.classList.toggle('hidden', !isVideo);
+  quiz.classList.toggle('hidden', isVideo);
+  videoBtn.className = 'px-4 py-2 rounded-lg transition flex items-center space-x-2 ' + (isVideo ? 'bg-indigo-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700');
+  quizBtn.className = 'px-4 py-2 rounded-lg transition flex items-center space-x-2 ' + (!isVideo ? 'bg-indigo-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700');
+  if (!isVideo) renderQuiz();
+}
+function renderQuiz() {
+  const q = quizData[quizIndex];
+  document.getElementById('quiz-progress').textContent = quizIndex < quizData.length ? `Questão ${quizIndex + 1} de ${quizData.length}` : 'Quiz concluído';
+  document.getElementById('quiz-score').textContent = `Pontuação: ${quizScore} / ${quizData.length}`;
+  if (!q) {
+    document.getElementById('quiz-question').textContent = `Você terminou! Acertou ${quizScore} de ${quizData.length} questões.`;
+    document.getElementById('quiz-options').innerHTML = '';
+    document.getElementById('quiz-feedback').className = 'mt-6 p-4 rounded-xl text-sm font-medium bg-indigo-900/50 text-indigo-200';
+    document.getElementById('quiz-feedback').textContent = 'Parabéns por participar! Você pode reiniciar e tentar novamente.';
+    document.getElementById('quiz-hint-btn').classList.add('hidden');
+    const next = document.getElementById('quiz-next-btn');
+    next.classList.remove('hidden'); next.textContent = 'Tentar novamente';
+    return;
+  }
+  quizAnswered = false;
+  document.getElementById('quiz-question').textContent = q.question;
+  const options = document.getElementById('quiz-options'); options.innerHTML = '';
+  q.options.forEach((option, i) => {
+    const b = document.createElement('button');
+    b.className = 'quiz-option w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-900/70 hover:bg-slate-800 transition text-sm';
+    b.textContent = `${String.fromCharCode(65+i)}. ${option}`;
+    b.onclick = () => answerQuiz(i);
+    options.appendChild(b);
+  });
+  const feedback = document.getElementById('quiz-feedback'); feedback.className = 'mt-6 p-4 rounded-xl hidden text-sm font-medium leading-relaxed'; feedback.textContent = '';
+  document.getElementById('quiz-next-btn').classList.add('hidden');
+  document.getElementById('quiz-next-btn').innerHTML = 'Próxima pergunta <i class="fa-solid fa-arrow-right ml-1"></i>';
+  document.getElementById('quiz-hint-btn').classList.remove('hidden');
+  const hint = document.getElementById('quiz-hint-text'); hint.classList.add('hidden'); hint.textContent = '';
+}
+function answerQuiz(selected) {
+  if (quizAnswered || quizIndex >= quizData.length) return;
+  quizAnswered = true;
+  const q = quizData[quizIndex], buttons = document.querySelectorAll('#quiz-options button');
+  buttons.forEach((b, i) => { b.disabled = true; if (i === q.correct) b.classList.add('border-emerald-500','bg-emerald-950/60'); else if (i === selected) b.classList.add('border-red-500','bg-red-950/50'); });
+  const correct = selected === q.correct;
+  if (correct) quizScore++;
+  document.getElementById('quiz-score').textContent = `Pontuação: ${quizScore} / ${quizData.length}`;
+  const feedback = document.getElementById('quiz-feedback');
+  feedback.className = 'mt-6 p-4 rounded-xl text-sm font-medium leading-relaxed ' + (correct ? 'bg-emerald-950/60 text-emerald-200 border border-emerald-800' : 'bg-red-950/50 text-red-200 border border-red-800');
+  feedback.textContent = (correct ? 'Correto! ' : 'Ainda não. ') + q.rationale;
+  document.getElementById('quiz-next-btn').classList.remove('hidden');
+  document.getElementById('quiz-hint-btn').classList.add('hidden');
+}
+function showQuizHint() {
+  if (quizIndex >= quizData.length) return;
+  const hint = document.getElementById('quiz-hint-text');
+  hint.textContent = 'Dica: ' + quizData[quizIndex].hint; hint.classList.remove('hidden');
+}
+function nextQuestion() {
+  if (quizIndex >= quizData.length) { quizIndex = 0; quizScore = 0; }
+  else if (!quizAnswered) return;
+  else quizIndex++;
+  renderQuiz();
+}
+
+function openTvMode() {
+  document.getElementById('tv-modal').classList.remove('hidden');
+  document.getElementById('tv-modal').classList.add('flex');
+  document.body.style.overflow = 'hidden';
+  showTvSlide(currentTvSlide);
+}
+function closeTvMode() {
+  const modal = document.getElementById('tv-modal');
+  modal.classList.add('hidden'); modal.classList.remove('flex');
+  document.body.style.overflow = '';
+  document.querySelectorAll('#tv-modal iframe').forEach(frame => { const src = frame.src; frame.src = src; });
+}
+function showTvSlide(index) {
+  currentTvSlide = Math.max(0, Math.min(totalTvSlides - 1, index));
+  document.querySelectorAll('.tv-slide').forEach((slide, i) => slide.classList.toggle('hidden', i !== currentTvSlide));
+  const indicators = document.getElementById('tv-indicators'); indicators.innerHTML = '';
+  for (let i = 0; i < totalTvSlides; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'w-3 h-3 rounded-full ' + (i === currentTvSlide ? 'bg-indigo-500' : 'bg-slate-700');
+    dot.setAttribute('aria-label', `Slide ${i+1}`);
+    indicators.appendChild(dot);
+  }
+  if (currentTvSlide === 3) renderTvQuiz();
+}
+function nextTvSlide() { showTvSlide((currentTvSlide + 1) % totalTvSlides); }
+function prevTvSlide() { showTvSlide((currentTvSlide - 1 + totalTvSlides) % totalTvSlides); }
+
+function renderTvQuiz() {
+  const q = quizData[tvQuizIndex];
+  document.getElementById('tv-quiz-progress').textContent = tvQuizIndex < quizData.length ? `Questão ${tvQuizIndex + 1} de ${quizData.length}` : 'Quiz concluído';
+  document.getElementById('tv-quiz-score').textContent = `Pontos: ${tvQuizScore} / ${quizData.length}`;
+  const question = document.getElementById('tv-quiz-question'), options = document.getElementById('tv-quiz-options');
+  const feedback = document.getElementById('tv-quiz-feedback'), next = document.getElementById('tv-quiz-next-btn');
+  options.innerHTML = ''; feedback.className = 'p-3 rounded-lg hidden text-sm font-semibold'; feedback.textContent = '';
+  if (!q) {
+    question.textContent = `Fim do quiz! Você acertou ${tvQuizScore} de ${quizData.length}.`;
+    next.classList.remove('hidden'); next.textContent = 'Reiniciar quiz'; return;
+  }
+  tvQuizAnswered = false; question.textContent = q.question;
+  q.options.forEach((option, i) => {
+    const b = document.createElement('button');
+    b.className = 'quiz-option w-full text-left p-3 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-sm';
+    b.textContent = `${String.fromCharCode(65+i)}. ${option}`; b.onclick = () => answerTvQuiz(i); options.appendChild(b);
+  });
+  next.classList.add('hidden'); next.textContent = 'Próxima questão';
+}
+function answerTvQuiz(selected) {
+  if (tvQuizAnswered || tvQuizIndex >= quizData.length) return;
+  tvQuizAnswered = true;
+  const q = quizData[tvQuizIndex];
+  document.querySelectorAll('#tv-quiz-options button').forEach((b, i) => { b.disabled = true; if (i === q.correct) b.classList.add('border-emerald-500','bg-emerald-950/60'); else if (i === selected) b.classList.add('border-red-500','bg-red-950/50'); });
+  const correct = selected === q.correct; if (correct) tvQuizScore++;
+  document.getElementById('tv-quiz-score').textContent = `Pontos: ${tvQuizScore} / ${quizData.length}`;
+  const feedback = document.getElementById('tv-quiz-feedback');
+  feedback.className = 'p-3 rounded-lg text-sm font-semibold ' + (correct ? 'bg-emerald-950/60 text-emerald-200' : 'bg-red-950/50 text-red-200');
+  feedback.textContent = (correct ? 'Correto! ' : 'Resposta incorreta. ') + q.rationale;
+  document.getElementById('tv-quiz-next-btn').classList.remove('hidden');
+}
+function nextTvQuizQuestion() {
+  if (tvQuizIndex >= quizData.length) { tvQuizIndex = 0; tvQuizScore = 0; }
+  else if (!tvQuizAnswered) return;
+  else tvQuizIndex++;
+  renderTvQuiz();
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeTvMode();
+  if (document.getElementById('tv-modal').classList.contains('flex')) {
+    if (e.key === 'ArrowRight') nextTvSlide();
+    if (e.key === 'ArrowLeft') prevTvSlide();
+  }
+});
+renderQuiz();
+</script>
+</body>
+</html>
